@@ -1,7 +1,7 @@
 {
   "name": "postquote",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "requires": true,
   "lockfileVersion": 1,

@@ -2,11 +2,14 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 var port = 3000;
+
 app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.get('/home', (req, res) => {
-	res.sendFile(__dirname + '/public/index.html');
+
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/views/index.html');
 });
 
 var posts = [];
@@ -54,5 +57,5 @@ app.post('/login', (req,res) => {
 	res.send(message == ''? "Wusername" : message);
 });
 
-console.log('App is listening on port ' + port);
+console.log('Server is listening on port ' + port);
 app.listen(port);
