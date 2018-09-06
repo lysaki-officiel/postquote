@@ -71,7 +71,6 @@ vuelog = new Vue({
 					url : '/register',
 					data : user
 				});
-				console.log(response.data);
 				if (response.data == "Success")
 				{
 					vuepost.logged = true;
@@ -90,7 +89,6 @@ vuelog = new Vue({
 				username : this.$refs.username.value,
 				password : this.$refs.password.value
 			};
-			console.log(user);
 			if (user.username != '' && user.password != ''){
 				this.empty = false;
 				let response = await axios({
@@ -98,7 +96,6 @@ vuelog = new Vue({
 					url : '/login',
 					data : user
 				});
-				console.log(response.data);
 				if (response.data == "Success")
 				{
 					vuepost.logged = true;
@@ -113,7 +110,6 @@ vuelog = new Vue({
 				this.empty = true;
 		},
 		submit:async function(){
-			console.log(this.selected);
 			if (this.selected == "Log In")
 			{
 				this.login();
