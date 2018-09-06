@@ -18,6 +18,7 @@ vuepost = new Vue({
 	el : "#vuepost",
 	data: {
 		empty : false,
+		logged : false
 	},
 	methods : {
 		postfic : async function(){
@@ -43,9 +44,6 @@ vuepost = new Vue({
 			}catch(error){
 				console.log(error);
 			}
-		},
-		logged : function(){
-			return vuelog.logged;
 		}
 	}
 });
@@ -76,6 +74,7 @@ vuelog = new Vue({
 				console.log(response.data);
 				if (response.data == "Success")
 				{
+					vuepost.logged = true;
 					this.logged = true,
 					this.username = user.username;
 					this.error = '';
@@ -102,6 +101,7 @@ vuelog = new Vue({
 				console.log(response.data);
 				if (response.data == "Success")
 				{
+					vuepost.logged = true;
 					this.logged = true,
 					this.username = user.username;
 					this.error = '';
@@ -126,6 +126,7 @@ vuelog = new Vue({
 			this.logged = false;
 			this.empty = false;
 			this.error = '';
+			vuepost.logged = false;
 		}
 	}
 })

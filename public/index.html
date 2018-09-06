@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Fanafic</title>
+		<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+		 <link href="https://fonts.googleapis.com/css?family=Caveat|Handlee" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -53,8 +55,8 @@
 				</div>
 			</form>
 				<button  class="btn btn-primary btn-lg btn-block" @click="postfic" id="postfic" >Post Your Quote!</button>
-				<p v-if="empty && logged()">You can't have an empty Quote or empty Title</p>
-				<p v-if="!logged()">Log in to write quotes people will never forget</p>
+				<p v-if="empty && logged">You can't have an empty Quote or empty Title</p>
+				<p v-if="!logged">Log in to post quotes people will never forget</p>
 		</div>
 		<div class="container" id="vueshow">
 			<h2>There are <span id="number">{{fics.length}}</span> Quotes at the moment !</h2>
