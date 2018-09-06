@@ -1,0 +1,23 @@
+#head{
+	text-align:center;
+}
+
+.fic h3{
+	text-transform:uppercase;
+}
+
+.fic{
+	margin-top:10px;
+	margin-bottom:10px;
+	padding-left:10px;
+}
+#vuepost{
+	margin-bottom:50px;
+}
+label{
+	text-align:center;
+}
+
+#vueshow #number{
+	color:red;
+}

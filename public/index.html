@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Fanafic</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/stylesheet.css">
+	</head>
+	<body>
+		<div class="container" id="head">
+			<h1>PostQuote</h1>
+			<h2>A place to post your quotes</h2>
+		</div>
+		<div class="container" id="vuelog">
+			<div v-if="!logged">
+				<form>
+					<select v-model="selected" class="form-control">
+						<option>Log In</option>
+						<option>Sign In</option>
+					</select>
+					<div class="form-group">
+						<label for="Username">Username (Max : 15 characters)</label>
+						<input maxlength="15" type="text" class="form-control" id="Username" placeholder="Enter Username" ref="username">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Enter Password (Max : 15 characters)</label>
+						<input maxlength="15" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ref="password">
+					</div>
+				</form>
+				<button type="submit" class="btn btn-primary" @click="submit(selected)">Submit</button>
+				<p v-if="error == 'Wusername'">Your Username is wrong</p>
+				<p v-if="error == 'Eusername'">This Username is already taken</p>
+				<p v-if="error == 'Wpassword'">Your Password is wrong</p>
+			</div>
+			<div v-else>
+				<p>You are currently logged as {{username}}</p>
+				<button type="button" class="btn btn-danger" @click="logout">Log Out</button>
+			</div>
+		</div>
+		<div class="container" id="vuepost">
+			<form>
+			  <div class="form-group">
+				<label for="title">Title (Max : 30 characters)</label>
+				<input type="text" maxlength="30"class="form-control" id="title"  ref="title" placeholder="My Quote Title">
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">Quote (Max : 242 characters)</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type Your Quote !" ref="text"
+					maxlength="242"></textarea>
+				</div>
+			</form>
+				<button  class="btn btn-primary btn-lg btn-block" @click="postfic" id="postfic" >Post Your Quote!</button>
+				<p v-if="empty && logged()">You can't have an empty Quote or empty Title</p>
+				<p v-if="!logged()">Log in to write quotes people will never forget</p>
+		</div>
+		<div class="container" id="vueshow">
+			<h2>There are <span id="number">{{fics.length}}</span> fanfics at the moment !</h2>
+			<button  class="btn btn-primary btn-sm" @click="getposts" id="updatefic" >Refresh !</button>
+			<div  v-for="(fic, key) in fics" class="border-left fic">
+				<h3 class="h3">{{fic.title}} <span><em>by {{fic.author}}</em></span></h3>
+				<p><em>{{fic.content}}</em></p>
+				<p>created on {{fic.date}}</p>
+			</div>
+		</div>
+		<script src="js/index.js"></script>
+	</body>
+</html>
