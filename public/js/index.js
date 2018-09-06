@@ -100,7 +100,7 @@ vuelog = new Vue({
 					data : user
 				});
 				console.log(response.data);
-				if (response == "Success")
+				if (response.data == "Success")
 				{
 					this.logged = true,
 					this.username = user.username;

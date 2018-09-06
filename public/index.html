@@ -57,7 +57,7 @@
 				<p v-if="!logged()">Log in to write quotes people will never forget</p>
 		</div>
 		<div class="container" id="vueshow">
-			<h2>There are <span id="number">{{fics.length}}</span> fanfics at the moment !</h2>
+			<h2>There are <span id="number">{{fics.length}}</span> Quotes at the moment !</h2>
 			<button  class="btn btn-primary btn-sm" @click="getposts" id="updatefic" >Refresh !</button>
 			<div  v-for="(fic, key) in fics" class="border-left fic">
 				<h3 class="h3">{{fic.title}} <span><em>by {{fic.author}}</em></span></h3>
