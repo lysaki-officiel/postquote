@@ -12,11 +12,18 @@ body{
 .fic h3{
 	text-transform:uppercase;
 }
-
+.fic span{
+	font-size:10px;
+}
 .fic{
-	margin-top:10px;
+	margin-top:50px;
 	margin-bottom:10px;
 	padding-left:10px;
+	border-left: solid 1px black;
+}
+
+.fic p em{
+	font-size:20px;
 }
 
 #vuepost{

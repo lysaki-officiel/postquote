@@ -61,10 +61,10 @@
 		<div class="container" id="vueshow">
 			<h2>There are <span id="number">{{fics.length}}</span> Quotes at the moment !</h2>
 			<button  class="btn btn-primary btn-sm" @click="getposts" id="updatefic" >Refresh !</button>
-			<div  v-for="(fic, key) in fics" class="border-left fic">
+			<div  v-for="(fic, key) in fics" class="fic">
 				<h3 class="h3">{{fic.title}} <span><em>by {{fic.author}}</em></span></h3>
-				<p><em>{{fic.content}}</em></p>
-				<p>created on {{fic.date}}</p>
+				<p><em>"{{fic.content}}"</em></p>
+				<p>posted on {{fic.date}}</p>
 			</div>
 		</div>
 		<script src="js/index.js"></script>
