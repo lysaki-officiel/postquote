@@ -13,13 +13,10 @@ var posts = [];
 var users = [];
 
 app.get('/posts', (req, res) => {
-	console.log("posts requested");
 	res.send(posts);
 	});
 ;
 app.post('/postafic', (req,res) => {
-		console.log('postafic');
-		console.log(req.body);
 		let today = new Date();
 		let date = today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear();
 		posts.unshift({
@@ -32,7 +29,6 @@ app.post('/postafic', (req,res) => {
 })
 
 app.post('/register', (req,res) => {
-	console.log('resgister');
 	let message = '';
 	let data = req.body;
 	users.forEach((user) => {
@@ -47,10 +43,8 @@ app.post('/register', (req,res) => {
 });
 
 app.post('/login', (req,res) => {
-	console.log('login');
 	let data = req.body;
 	let message = '';
-	console.log(data);
 	users.forEach((user) => {
 		if (data.username == user.username && data.password == user.password)
 			message = "Success";
